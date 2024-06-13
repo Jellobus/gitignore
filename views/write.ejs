@@ -1,0 +1,31 @@
+<%-include ("partials/header.ejs")%>
+
+<main class="container">
+    <!-- <form id="blogForm" action="/writeBlog" method="post"> -->
+    <form id="blogForm" action="<%= editMode ? '/editBlog' : '/writeBlog' %>" method="post">
+
+        <div class="mb-3">
+            <label for="blogSubject" class="form-label">Subject</label>
+            <!-- <textarea class="form-control" name="subject" rows="1"></textarea> -->
+            <textarea class="form-control" name="subject" rows="1"><%= content ? content.subject : "" %></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="blogText" class="form-label">Text</label>
+            <!-- <textarea class="form-control" name="text" rows="10"></textarea> -->
+            <textarea class="form-control" name="text" rows="10"><%= content ? content.text : "" %></textarea>
+        </div>
+        <% if (editMode) { %>
+            <input type="hidden" name="id" value="<%= contentIndex %>">
+        <% } %>
+        <!-- <button id="submitBlog" type="submit" class="btn btn-primary">Submit</button> -->
+        <button id="submitBlog" type="submit" class="btn btn-primary"><%= editMode ? "Done" : "Submit" %></button>
+    </form>
+</main>
+
+
+
+    
+
+
+
+<%-include ("partials/footer.ejs")%>

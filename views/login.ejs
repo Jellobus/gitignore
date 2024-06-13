@@ -1,0 +1,21 @@
+<%-include ("partials/header.ejs")%>
+
+
+
+<!DOCTYPE html>
+<html>
+
+<h1>Log in</h1>
+<body>
+  <form action="/login" method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>
+
+<%-include ("partials/footer.ejs")%>

@@ -1,0 +1,48 @@
+<%-include ("partials/header.ejs")%>
+
+<body>
+    <h1><%=content.subject%></h1>
+    <p><%=content.text%></p>
+    <%if (userAuthorized) {%>
+        <div class="button-group">
+            <form id="delete-form" action="/delete" method="POST">
+                <input type="hidden" name="id" value="<%= contentIndex %>">
+                <button id="delete-button" type="button" class="btn btn-danger">Delete</button>
+            </form>
+            <form id="update-form" action="/update" method="GET">
+                <input type="hidden" name="id" value="<%= contentIndex %>">
+                <button id="update-button" type="button" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        
+    <%}%>
+</body>
+
+<script>
+
+var numberOfBtns = document.querySelectorAll(".btn").length;
+  
+  for ( var i = 0; i < numberOfBtns; i++) {
+    document.querySelectorAll(".btn")[i].addEventListener("click", function() {
+      var targetButton = this.id;
+      deleteUpdate(targetButton);
+    });
+  }
+  
+  function deleteUpdate(target) {
+    switch(target) {
+      case "delete-button": 
+        document.getElementById("delete-form").submit();
+        break;
+      case "update-button":
+        document.getElementById("update-form").submit();
+        break;
+      default: console.log(target);
+    }
+  } 
+
+
+
+</script>
+
+<%-include ("partials/footer.ejs")%>

@@ -1,0 +1,18 @@
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.button-group form {
+  display: inline-block;
+  margin-right: 10px; /* Adjust the spacing as needed */
+}
+
+.button-group form:last-child {
+  margin-right: 0; /* Remove the margin from the last form */
+}
+  

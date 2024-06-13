@@ -1,0 +1,11 @@
+<%-include ("partials/header.ejs")%>
+
+<body>
+    <main class="container">
+        <%contents.forEach((content, index) =>{%>
+            <p><a href="/content/<%= index %>"><%=content.subject%></a></p>
+        <%})%>
+    </main>
+</body>
+
+<%-include ("partials/footer.ejs")%>
